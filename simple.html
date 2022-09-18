@@ -1,0 +1,214 @@
+ <!DOCTYPE HTML>
+<html> <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <title>js-graphy - Visualize, Test, Tweak and Play with JavaScript Math</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" type="text/css" href="graphy.css" />
+
+  <script type="text/javascript" src="https://ajaxorg.github.io/ace-builds/src-noconflict/ace.js"  charset="utf-8"></script>
+ 
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="calc.js"></script>
+  <script type="text/javascript" src="jsgcalc.js"></script>
+  <script type="text/javascript" src="graphy.js"></script>
+
+  <script type="text/javascript" src="jquery.splitter.js"></script>
+
+
+</head>
+
+<body>
+
+  <script src="giacsimple.js" async></script> 
+  
+
+<div id="status">Downloading...</div>
+<div>
+  <progress value="0" max="100" id="progress" hidden=1></progress>
+</div>
+
+<div class="calculator">
+    <span class="logo">Casio</span>
+    <span class="model">fx-82MS</span>
+    <span class="svpam">S-V.P.A.M.</span>
+    
+    <div class="screen">
+        <div id="wrapper">
+
+
+            <div id="graph_wrapper">
+              <canvas id="graph"></canvas>
+            </div>
+
+          </div>
+
+
+        <div class="wrapper">
+        
+        <h1 class="typing-demo" id="input">
+              1 + 1 aadasdasdasdasdasdasdadasdadasd
+              </h1>
+        <div id="output"></div> 
+
+      
+              
+              
+          </div>
+    </div>
+    
+    <div class="modifiers">
+        <button class="shift center-shift" tabindex="1"></button>
+        <button class="alpha center-alpha" tabindex="2"></button>
+         <button class="alpha center-alpha" tabindex="2"></button>
+         
+        <button class="on center-shift" tabindex="4"></button>
+        <button class="mode" tabindex="3"></button>
+    </div>
+    
+     <div class="replay">Replay</div> 
+   
+    <table class="function-keys">
+        <tr>
+            <td><button class="reciprocal center-shift">x<span class="sup">-1</span></button></td>
+            <td><button class="combin center-shift">nCr</button></td>
+             <td><button class="combin center-shift">nCr</button></td>
+            <td></td>
+            <td></td>
+             <!-- <td><button class="combin center-shift">nCr</button></td> -->
+           <!--  <td><button class="pol">Pol(</button></td> -->
+           <!--  <td><button class="cube center-shift">x<span class="sup">3</span></button></td> -->
+        </tr>
+        <tr>
+            <td><button class="frac center-shift">a<span class="sup">b</span>/<span class="xxs">c</span></button></td>
+            <td><button>&radic;</button></td>
+            <td><button class="square">x<span class="sup">2</span></button></td>
+            <!-- <td><button class="pow center-shift">^</button></td>
+            <td><button class="log center-shift">log</button></td> -->
+            <td></td>
+            <td></td>
+            <!-- <td><button class="ln">ln</button></td> -->
+        </tr>
+        <tr>
+            <td><button class="minus">(&minus;)</button></td>
+            <td><button class="deg">&deg;&prime;&Prime;</button></td>
+            <td><button class="hyp">hyp</button></td>
+            <td><button class="sin">sin</button></td>
+            <td><button class="cos">cos</button></td>
+            <!-- <td><button class="tan">tan</button></td> -->
+        </tr>
+        <tr>
+            <td><button class="rcl center-shift">RCL</button></td>
+            <td><button class="eng center-shift">ENG</button></td>
+            <td><button class="open-paren">(</button></td>
+            <td><button class="close-paren">)</button></td>
+            <td><button class="comma">,</button></td>
+            <!-- <td><button class="mem-plus">M+</button></td> -->
+        </tr>
+    </table>
+    
+    <table class="basic-keys">
+        <tr>
+            <td><button class="rcl center-shift leftButtons">RCL</button></td>
+            <td><button>8</button></td>
+            <td><button>9</button></td>
+            <td><button class="pink del center-shift">DEL</button></td>
+            <td><button class="pink ac center-shift">AC</button></td>
+        </tr>
+        <tr>
+            <td><button class="log center-shift leftButtons">log</button></td>
+            <td><button>5</button></td>
+            <td><button>6</button></td>
+            <td><button>×</button></td>
+            <td><button>&divide;</button></td>
+        </tr>
+        <tr>
+            <!-- <td><button class="one center-shift">1</button></td> -->
+            <td><button class="reciprocal center-shift leftButtons">x<span class="sup">-1</span></button></td>
+            <td><button class="two center-shift">2</button></td>
+            <td><button>3</button></td>
+            <td><button>+</button></td>
+            <td><button>−</button></td>
+        </tr>
+        <tr>
+             <td><button class="rcl center-shift leftButtons">RCL</button></td>
+            <td><button class="period center-shift">.</button></td>
+            <td><button class="exp center-shift">EXP</button></td>
+            <td><button class="ans center-shift">Ans</button></td>
+            <td><button class="equals center-shift" onclick="UI.micropy=0;UI.python_mode=0; evalinput();">=</button></td>
+        </tr>
+    </table>
+</div>
+
+
+
+<div id="code">
+  <div id="edit">
+
+graph.add(function(x) { return Math.cos(x); });
+</div>
+</div>
+
+<script>
+
+var evalinput=function(){
+  console.log(document.getElementById('input').value = 'diff(ln(x))');
+ var output=document.getElementById('output');
+ var input=document.getElementById('input');
+ UI.eval_input(output,input);
+};
+
+</script>
+
+
+</body> </html> 
+
+ <!-- 
+ <!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <title>js-graphy - Visualize, Test, Tweak and Play with JavaScript Math</title>
+
+  <link rel="stylesheet" type="text/css" href="graphy.css" />
+
+  <script type="text/javascript" src="https://ajaxorg.github.io/ace-builds/src-noconflict/ace.js"  charset="utf-8"></script>
+
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="calc.js"></script>
+  <script type="text/javascript" src="jsgcalc.js"></script>
+  <script type="text/javascript" src="graphy.js"></script>
+
+  <script type="text/javascript" src="jquery.splitter.js"></script>
+
+</head>
+
+<body>
+
+
+<div id="wrapper">
+
+  
+
+  <div id="graph_wrapper">
+    <canvas id="graph"></canvas>
+  </div>
+
+</div>
+
+<div id="code">
+  <div id="edit">// this code is live, edit me!
+
+graph.add(function(x) { return x; });
+
+</div>
+
+
+</div>
+
+
+</body>
+
+</html>
+  -->
