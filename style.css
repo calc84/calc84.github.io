@@ -4,7 +4,7 @@ body {
 
 .calculator {
     width: 18rem;
-    height: 40.5rem;
+    height: 41rem;
     background: hsl(208, 28%, 35%);
     background: linear-gradient(to top, hsl(208, 30%, 35%), hsl(208, 30%, 40%));
     margin: 0 auto;
@@ -78,7 +78,7 @@ body {
 }
 
 button {
-    text-align: center;
+    text-align: center ;
     cursor: pointer;
     padding: 5px;
     border: 0 white none;
@@ -97,8 +97,19 @@ td {
     text-align: center;
 }
 
+.smallerFont{
+ font-size: 11px !important;
+}
+
 .modifiers {
-    margin: 1.5rem -30px 1.75rem 7px;
+    margin: 1.5rem -30px 1.45rem 7px;
+    
+}
+
+.window{
+     font-size: 8px !important;
+     padding-bottom: 3px !important;
+
 }
 
 .modifiers button {
@@ -109,34 +120,28 @@ td {
     margin-right: .92rem;
     background: hsl(221, 14%, 66%);
     background: linear-gradient(to top, hsl(221, 14%, 66%), hsl(221, 14%, 71%));
+    font-size: 11px;
+    color: black;
+  
 }
 
 .modifiers button::before, .modifiers button::after {
     text-transform: uppercase;
+    top: -8px !important;
 }
 
 .mode::before, .on::before {
     color: hsl(225, 20%, 84%);
 }
 
-.shift {
-    left: 0;
+.lineHeight{
+    /* line-height: 0 !important; */
+     display: inline-block;
+    line-height: 0px;
+    padding-top: 4px;
+    text-align: center;
 }
 
-.alpha {
-    top: 0px;
-}
-
-.mode {
-    
-    top: 0px;
-}
-
-.on {
-    
-    
- 
-}
 
 .shift::before {content: "Shift";}
 .alpha::after {content: "Alpha";}
@@ -151,7 +156,7 @@ td {
     line-height: 70px;
     position: absolute;
     left: 65%;
-    top: 42%;
+    top: 41%;
     border-radius: 125px;
     text-transform: uppercase;
     font-size: 9px;
@@ -167,7 +172,7 @@ button.nav {
 }
 
 .function-keys {
-    margin: 1.5rem 0 .75rem 0;
+    margin: 1.5rem 0  0rem 0;
     margin-left: 5px;
 }
 
@@ -195,6 +200,14 @@ button.nav {
 
 }
 
+.divideButton{
+    width: 2.5rem !important;
+    height: 1.75rem !important;
+    background: hsl(221, 14%, 66%) !important;
+    background: linear-gradient(to top, hsl(221, 14%, 66%), hsl(221, 14%, 71%)) !important;
+    border-radius: 3px 3px 7px 7px !important;
+}
+
 .basic-keys {}
 .basic-keys button {
     width: 2.5rem;
@@ -218,6 +231,17 @@ button.pink {
     background: linear-gradient(to top, hsl(353, 50%, 70%), hsl(353, 50%, 75%));
 }
 
+button.blue {
+    background: hsl(196, 50%, 50%);
+    background: linear-gradient(to top, hsl(196, 50%, 50%), hsl(196, 50%, 60%));
+}
+
+button.green {
+    background: hsl(105, 36%, 50%);
+    background: linear-gradient(to top, hsl(105, 36%, 50%), hsl(105, 36%, 60%));
+}
+
+
 button::before, button::after {
     position: absolute;
     font-size: 9px;
@@ -240,6 +264,7 @@ button::after {
     right: 0;
     text-align: right;
 }
+
 
 .center-shift::before, .center-alpha::after {
     text-align: center;
