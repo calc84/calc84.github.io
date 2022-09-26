@@ -12,6 +12,8 @@
   <script type="text/javascript" src="calc.js"></script>
   <script type="text/javascript" src="jsgcalc.js"></script>
   <script type="text/javascript" src="graphy.js"></script>
+  <script type="text/javascript" src="screen.js"></script> 
+
 
   <script type="text/javascript" src="jquery.splitter.js"></script>
 
@@ -47,7 +49,7 @@
         <div class="wrapper">
         
         <h1 class="typing-demo" id="input">
-              1 + 1 aadasdasdasdasdasdasdadasdadasd
+              1 + 1
               </h1>
         <div id="output"></div> 
 
@@ -59,7 +61,7 @@
     
     <div class="modifiers">
         <button class="shift center-shift lineHeight" tabindex="1"> y=</button>
-        <button class="alpha center-alpha lineHeight window" tabindex="2">window</button>
+        <button class="window center-alpha lineHeight" tabindex="2">window</button>
          <button class="alpha center-alpha lineHeight" tabindex="2">zoom</button>
          
         <button class="on center-shift lineHeight" tabindex="4">trace</button>
@@ -71,100 +73,75 @@
     <table class="function-keys">
         <tr>
            <td><button class="blue  center-shift">2nd</button></td> 
-            <td><button class="combin center-shift">mode</button></td>
+            <td><button class="modeBot center-shift">mode</button></td>
              <td><button class="combin center-shift">del</button></td>
             <td></td>
             <td></td>
-             <!-- <td><button class="combin center-shift">nCr</button></td> -->
-           <!--  <td><button class="pol">Pol(</button></td> -->
-           <!--  <td><button class="cube center-shift">x<span class="sup">3</span></button></td> -->
         </tr>
         <tr>
           <td><button class="green ac center-shift smallerFont">alpha</button></td> 
-            <!-- <td><button class="frac center-shift">a<span class="sup">b</span>/<span class="xxs">c</span></button></td> -->
-            <!-- <td><button>&radic;</button></td> -->
-            <td><button class="smallerFont">x,t,&#952;,n</button></td>
+            <td><button class="xVars smallerFont center-shift">x,t,&#952;,n</button></td>
           
-           <td><button class="rcl center-shift">stat</button></td>
-            <!-- <td><button class="pow center-shift">^</button></td>
-            <td><button class="log center-shift">log</button></td> -->
+           <td><button class="stat center-shift">stat</button></td>
             <td></td>
             <td></td>
-            <!-- <td><button class="ln">ln</button></td> -->
         </tr>
         <tr>
-            <td><button class="minus">math</button></td>
-            <td><button class="deg">apps</button></td>
-            <td><button class="hyp">prgm</button></td>
-            <td><button class="sin">vars</button></td>
-            <td><button class="cos">clear</button></td>
-           <!--  <td><button class="tan">tan</button></td> -->
+            <td><button class="math center-shift">math</button></td>
+            <td><button class="apps center-shift">apps</button></td>
+            <td><button class="prgm center-shift">prgm</button></td>
+            <td><button class="vars center-shift">vars</button></td>
+            <td><button >clear</button></td>
         </tr>
         <tr>
             <td><button class="reciprocal center-shift">x<span class="sup">-1</span></button></td>
-           <!--  <td><button class="deg">&deg;&prime;&Prime;</button></td> -->
-            <td><button class="sin">sin</button></td>
-            <td><button class="cos">cos</button></td>
-             <td><button class="tan">tan</button></td> 
-             <td><button class="pow center-shift">^</button></td>
+            <td><button class="sin" onclick="clickDigit('sin')">sin</button></td>
+            <td><button class="cos" onclick="clickDigit('cos')">cos</button></td>
+             <td><button class="tan" onclick="clickDigit('tan')">tan</button></td> 
+             <td><button class="pow center-shift" onclick="clickDigit('^')">^</button></td>
         </tr>
         <tr>
-            <td><button class="square">x<span class="sup">2</span></button></td> 
-            <!-- <td><button class="eng center-shift">ENG</button></td> -->
-            <td><button class="comma">,</button></td>
-            <td><button class="open-paren">(</button></td>
-            <td><button class="close-paren">)</button></td>
-            <!-- <td><button class="comma">,</button></td> -->
-             <td><button class="divideButton">&divide;</button></td> 
-            <!-- <td><button class="mem-plus">M+</button></td> -->
+            <td><button class="square center-shift">x<span class="sup">2</span></button></td> 
+            <td><button class="comma center-shift">,</button></td>
+            <td><button class="open-paren center-shift" onclick="clickDigit('(')">(</button></td>
+            <td><button class="close-paren center-shift" onclick="clickDigit(')')">)</button></td>
+             <td><button class="divideButton center-shift" onclick="clickDigit('/')">&divide;</button></td> 
         </tr>
     </table>
     
     <table class="basic-keys">
         <tr>
-            <td><button class="log center-shift leftButtons">log</button></td> 
-             <td><button>7</button></td>
-            <td><button>8</button></td>
-            <td><button>9</button></td>
-            <!-- <td><button class="pink del center-shift">DEL</button></td> -->
-            <!-- <td><button class="pink ac center-shift">AC</button></td> -->
-             <td><button>×</button></td> 
+            <td><button class="log center-shift leftButtons" onclick="clickDigit('log')">log</button></td> 
+             <td><button class="seven center-shift" onclick="clickDigit('7')">7</button></td>
+            <td><button class="eight center-shift" onclick="clickDigit('8')">8</button></td>
+            <td><button class="nine center-shift" onclick="clickDigit('9')">9</button></td>
+             <td><button class="mult center-shift">×</button></td> 
         </tr>
         <tr>
         
-           <td><button class="ln leftButtons">ln</button></td>
-            <td><button>4</button></td>
-            <td><button>5</button></td>
-            <td><button>6</button></td>
-           <!--  <td><button>×</button></td> -->
-            <!-- <td><button>&divide;</button></td> -->
-             <td><button>−</button></td> 
+           <td><button class="ln  center-shift leftButtons" onclick="clickDigit('ln')">ln</button></td>
+            <td><button class="four center-shift" onclick="clickDigit('4')">4</button></td>
+            <td><button class="five center-shift" onclick="clickDigit('5')">5</button></td>
+            <td><button  class="six center-shift" onclick="clickDigit('6')">6</button></td>
+             <td><button class="sub center-shift">−</button></td> 
         </tr>
         <tr>
-              <td><button class="rcl center-shift leftButtons">sto&#8594;</button></td>
-           <!--  <td><button class="reciprocal center-shift leftButtons">x<span class="sup">-1</span></button></td> -->
-            <td><button class="one center-shift">1</button></td>
-            <td><button class="two center-shift">2</button></td>
+              <td><button class="sto center-shift leftButtons">sto&#8594;</button></td>
+            <td><button class="one center-shift" onclick="clickDigit('1')">1</button></td>
+            <td><button class="two center-shift" onclick="clickDigit('2')">2</button></td>
              
-            <td><button>3</button></td>
-             <td><button>+</button></td> 
+            <td><button onclick="clickDigit('3')" class="three center-shift">3</button></td>
+             <td><button class="plus" onclick="clickDigit('+')">+</button></td> 
           
         </tr>
         <tr>
              <td><button class="rcl center-shift leftButtons">on</button></td>
-             <td><button class="zero center-shift">0</button></td>
-            <td><button class="period center-shift">.</button></td>
-            <td><button class="exp center-shift">(&minus;)</button></td>
-           <!--  <td><button class="ans center-shift">Ans</button></td> -->
+             <td><button class="zero center-shift" onclick="clickDigit('0')">0</button></td>
+            <td><button class="period center-shift" onclick="clickDigit('.')">.</button></td>
+            <td><button class="exp center-shift" onclick="clickDigit('-')">(&minus;)</button></td>
             <td><button class="equals center-shift" onclick="UI.micropy=0;UI.python_mode=0; evalinput();">enter</button></td>
         </tr>
-       <!--  <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><button class="equals center-shift" onclick="UI.micropy=0;UI.python_mode=0; evalinput();">=</button></td>
-        </tr> -->
+       
     </table>
 </div>
 
@@ -177,16 +154,6 @@ graph.add(function(x) { return Math.cos(x); });
 </div>
 </div>
 
-<script>
-
-var evalinput=function(){
-  console.log(document.getElementById('input').value = 'diff(ln(x))');
- var output=document.getElementById('output');
- var input=document.getElementById('input');
- UI.eval_input(output,input);
-};
-
-</script>
 
 
 </body> </html> 

@@ -1,3 +1,9 @@
+
+ * {
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+} 
+
 body {
     
 }
@@ -126,13 +132,10 @@ td {
 }
 
 .modifiers button::before, .modifiers button::after {
-    text-transform: uppercase;
     top: -8px !important;
 }
 
-.mode::before, .on::before {
-    color: hsl(225, 20%, 84%);
-}
+
 
 .lineHeight{
     /* line-height: 0 !important; */
@@ -143,11 +146,22 @@ td {
 }
 
 
-.shift::before {content: "Shift";}
-.alpha::after {content: "Alpha";}
-.mode::before {content: "Mode"; left: -9px}
-.mode::after {content: "CLR"; right: -9px; color: hsl(34, 68%, 72%);}
-.on::before {content: "ON";}
+.shift::before {content: "stat plot"; left: -13px}
+.shift::after {content: "f1"; right: 0px; }
+
+.window::before {content: "tblset"; left: -2px}
+.window::after {content: "f2"; right: -16px; }
+
+
+.on::before {content: "calc"; left: -9px}
+.on::after {content: "f4"; right: -1px; }
+
+.alpha::before {content: "format"; left: -5px}
+.alpha::after {content: "f3"; right: -16px; }
+
+.mode::before {content: "table"; left: -2px}
+.mode::after {content: "f5"; right: 0px; }
+
 
 .replay {
     background: linear-gradient(to top, hsl(221, 14%, 66%), hsl(221, 14%, 71%));
@@ -271,42 +285,136 @@ button::after {
 }
 
 .del::before {content: "INS";}
-.ac::before {content: "OFF";}
-.reciprocal::before {content: "x!";}
-.combin::before {content: "nPr";}
+.ac::before {content: "A-lock";}
+.modeBot::before {content: "quit";}
+
+.combin::before {content: "ins";}
 .pol::before {content: "Rec(";}
 .pol::after {content: ":";}
 .cube::before {content: "\221b";}
 .frac::before {content: "d/c";}
-.pow::before {content: "ˣ \221A"}
-.log::before {content: "10 ˣ";}
-.ln::before {content: "e ˣ";}
-.ln::after {content: "e";}
+.pow::before {content: "\03C0"; left: -13px}
+.pow::after {content: 'H'; left: -5px}
+
 .minus::before {content: "";}
 .minus::after {content: "A";}
-.deg::before {content: "\2190";}
+
+.plus::before {content: "mem";}
+.plus::after {content: '"';}
+
+.divideButton::before {content: "e"; left: -13px}
+.divideButton::after {content: 'M'; left: -5px}
+
+.mult::before {content: "["; left: -13px}
+.mult::after {content: 'R'; left: -5px}
+
+.sub::before {content: "]"; left: -13px}
+.sub::after {content: 'W'; left: -5px}
+
+.deg::before {content: "angle";}
 .deg::after {content: "B";}
 .hyp::after {content: "C";}
 .sin::before {content: "sin \207b\b9";}
 .cos::before {content: "cos \207b\b9";}
 .tan::before {content: "tan \207b\b9";}
-.sin::after {content: "D";}
-.cos::after {content: "E";}
-.tan::after {content: "F";}
-.rcl::before {content: "STO";}
+.sin::after {content: "E";}
+.cos::after {content: "F";}
+.tan::after {content: "G";}
+
+
 .eng::before {content: "\2190";}
 .close::paren:after {content: "X";}
-.comma::before {content: ";";}
-.comma::after {content: "Y";}
+
 .mem-plus::before {content: "M-";}
 .mem-plus::after {content: "M";}
-.zero::before {content: "Rnd";}
-.period::before {content: "Ran#";}
-.exp::before {content: "\03c0";}
+
+
+.xVars::before {content: "link";}
+
+.stat::before {content: "list";}
+
+.math::before {content: "test"; left: -13px}
+.math::after {content: 'A'; left: -5px}
+
+.apps::before {content: "angle"; left: -13px}
+.apps::after {content: 'B'; left: -5px}
+
+.prgm::before {content: "draw"; left: -13px}
+.prgm::after {content: 'C'; left: -5px}
+
+.vars::before {content: "distr"; left: -13px}
+.vars::after {content: ''; left: -5px}
+
+.reciprocal::before {content: "matrix"; left: -13px}
+.reciprocal::after {content: 'D'; left: -5px}
+
+.square::before {content: "\221A"; left: -13px}
+.square::after {content: 'I'; left: -5px}
+
+.comma::before {content: "EE"; left: -13px}
+.comma::after {content: 'J'; left: -5px}
+
+.open-paren::before {content: "{"; left: -13px}
+.open-paren::after {content: 'K'; left: -5px}
+
+.close-paren::before {content: "}"; left: -13px}
+.close-paren::after {content: 'L'; left: -5px}
+
+.log::before {content: "10 ˣ"; left: -13px}
+.log::after {content: 'N'; left: -5px}
+
+.seven::before {content: "u"; left: -13px}
+.seven::after {content: 'O'; left: -5px}
+
+.eight::before {content: "v"; left: -13px}
+.eight::after {content: 'P'; left: -5px}
+
+.nine::before {content: "w"; left: -13px}
+.nine::after {content: 'Q'; left: -5px}
+
+
+.ln::before {content: "e ˣ"; left: -13px}
+.ln::after {content: 'S'; left: -5px}
+
+.four::before {content: "L4"; left: -13px}
+.four::after {content: 'T'; left: -5px}
+
+.five::before {content: "L5"; left: -13px}
+.five::after {content: 'U'; left: -5px}
+
+.six::before {content: "L6"; left: -13px}
+.six::after {content: 'V'; left: -5px}
+
+.sto::before {content: "rcl"; left: -13px}
+.sto::after {content: 'X'; left: -5px}
+
+.one::before {content: "L1"; left: -13px}
+.one::after {content: 'Y'; left: -5px}
+
+.two::before {content: "L2"; left: -13px}
+.two::after {content: 'Z'; left: -5px}
+
+.three::before {content: "L3"; left: -13px}
+.three::after {content: '\03B8'; left: -5px}
+
+.rcl::before {content: ""; left: -13px}
+.rcl::after {content: 'off'; left: -5px}
+
+.zero::before {content: "catalog"; left: -13px}
+.zero::after {content: '\005F'; left: -5px}
+
+
+.period::before {content: "\00ED"; left: -13px}
+.period::after {content: ':'; left: -5px}
+
+.exp::before {content: "ans"; left: -13px}
+.exp::after {content: '?'; left: -5px}
+
 .ans::before {content: "DRG\25ba";}
-.equals::before {content: "%";}
-.one::before {content: "S-SUM"; font-size: 8px; top: -10px}
-.two::before {content: "S-VAR"; font-size: 8px; top: -10px}
+.equals::before {content: "entry"; left: -12px}
+.equals::after {content: "solve"; right: -6px}
+
+
 
 /* jazzy 'x' */
 /* .reciprocal, .square {} */
