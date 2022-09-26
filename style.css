@@ -11,8 +11,9 @@ body {
 .calculator {
     width: 18rem;
     height: 41rem;
-    background: hsl(208, 28%, 35%);
-    background: linear-gradient(to top, hsl(208, 30%, 35%), hsl(208, 30%, 40%));
+    /* background: hsl(208, 28%, 35%); */
+    /* background: linear-gradient(to top, hsl(208, 30%, 35%), hsl(208, 30%, 40%));  */
+    background: linear-gradient(to top, hsl(204, 30%, 15%), hsl(204, 30%, 15%));  
     margin: 0 auto;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -267,14 +268,14 @@ button::before, button::after {
 
 /* shift */
 button::before {
-    color: hsl(34, 68%, 72%);
+    color: hsl(196, 50%, 60%);
     left: 0;
     text-align: left;
 }
 
 /* alpha */
 button::after {
-    color: hsl(353, 50%, 70%);
+    color: hsla(112, 34%, 63%, 1);
     right: 0;
     text-align: right;
 }
@@ -342,8 +343,7 @@ button::after {
 .prgm::before {content: "draw"; left: -13px}
 .prgm::after {content: 'C'; left: -5px}
 
-.vars::before {content: "distr"; left: -13px}
-.vars::after {content: ''; left: -5px}
+.vars::before {content: "distr";}
 
 .reciprocal::before {content: "matrix"; left: -13px}
 .reciprocal::after {content: 'D'; left: -5px}
