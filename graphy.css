@@ -2,7 +2,8 @@
 body { font-family: "Open Sans", sans-serif; font-size: 9pt; overflow: hidden; margin: 0; }
 
 #vsplitter { width: 100%; overflow: hidden;}
-#wrapper { z-index: 1000; position: center; margin: auto; width: 30%;height: 30%; overflow: hidden; display: none; left: 0}
+#wrapper { z-index: 1000;  margin: auto; width: 30%;height: 30%; overflow: hidden; ; left: 0px; float: left;}
+
 #code { width: 100%; overflow: hidden; display: none;}
 #edit { width: 100%; overflow: hidden; display: none;}
 #status { width: 100%; height: 20px; overflow: hidden; padding: 4px; font-size: 12px; }

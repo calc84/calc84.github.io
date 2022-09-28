@@ -14,8 +14,9 @@ var clickDigit = function (uniqueValue) {
     document.getElementById('input').innerHTML = valueCurr;
 };
 
-var showGraph = function () {
+/* var showGraph = function () {
     const el = document.getElementById('wrapper') ;
     el.style.display = "unset"
 
 }
+ */
