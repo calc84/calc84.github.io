@@ -4,18 +4,11 @@
 
   <title>js-graphy - Visualize, Test, Tweak and Play with JavaScript Math</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
-  <link rel="stylesheet" type="text/css" href="graphy.css" />
-
-  <script type="text/javascript" src="https://ajaxorg.github.io/ace-builds/src-noconflict/ace.js"  charset="utf-8"></script>
  
-  <script type="text/javascript" src="jquery.min.js"></script>
-  <script type="text/javascript" src="calc.js"></script>
-  <script type="text/javascript" src="jsgcalc.js"></script>
-  <script type="text/javascript" src="graphy.js"></script>
+
+   <script src="/testFunctionPlot.js"></script>
   <script type="text/javascript" src="screen.js"></script> 
 
-
-  <script type="text/javascript" src="jquery.splitter.js"></script>
 
 
 </head>
@@ -30,13 +23,7 @@
   <progress value="0" max="100" id="progress" hidden=1></progress>
 </div>
 
-<div id="wrapper">
 
-    <div id="graph_wrapper">
-      <canvas id="graph"></canvas>
-    </div>
-
-  </div>
 
 <div class="calculator">
     <span class="logo">Casio</span>
@@ -154,12 +141,7 @@
 
 
 
-<div id="code">
-  <div id="edit">
-
-graph.add(function(x) { return Math.cos(x); });
-</div>
-</div>
+ <div id="root"></div>
 
 
 
