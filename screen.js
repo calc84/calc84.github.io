@@ -1,3 +1,5 @@
+let data = [];
+
 document.addEventListener('DOMContentLoaded', function () {
     let width = 400;
     let height = 400;
@@ -16,20 +18,14 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         grid: true,
         fnType: 'implicit',
-        data: [{
-            fn: "sin(x)",
-            closed: false
-        }, {
-            fn: "x^3",
-            closed: false
-        }, ]
+        data: data
     });
 
 }, false);
 
 let valueCurr = '';
 
-var evalinput = function () {
+const evalinput = function () {
     document.getElementById('input').value = valueCurr;
     var output = document.getElementById('output');
     var input = document.getElementById('input');
@@ -37,14 +33,62 @@ var evalinput = function () {
 
 };
 
-var clickDigit = function (uniqueValue) {
+const clickDigit = function (uniqueValue) {
     valueCurr += uniqueValue
     document.getElementById('input').innerHTML = valueCurr;
 };
 
-/* var showGraph = function () {
-    const el = document.getElementById('wrapper') ;
-    el.style.display = "unset"
+
+const addGraph = () => {
+     let width = 400;
+     let height = 400;
+    data.push({
+        fn: "sin(x)",
+        closed: false
+    })
+    
+    functionPlot({
+        target: "#root",
+        width,
+        height,
+        disableZoom: true,
+        yAxis: {
+            domain: [-10, 10]
+        },
+        xAxis: {
+            domain: [-10, 10]
+        },
+        grid: true,
+        fnType: 'implicit',
+        data: data
+    });
+}
+
+let yValue = 0;
+
+const downArrowGraph = () => {
+    document.getElementById(`inpt${yValue}`).classList.remove("curr");
+
+    if (yValue < 9) {
+        yValue++;
+    }
+
+     document.getElementById(`inpt${yValue}`).classList.add("curr");
+}
+
+const upArrowGraph = () => {
+    document.getElementById(`inpt${yValue}`).classList.remove("curr");
+
+    if (yValue > 0) {
+        yValue--;
+    }
+
+    document.getElementById(`inpt${yValue}`).classList.add("curr");
 
 }
- */
+
+const graphPage = () => {
+    const screen = document.getElementById('screen');
+    screen.innerHTML = '<h1>test</h1>';
+}
+

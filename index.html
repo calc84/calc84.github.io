@@ -30,17 +30,11 @@
     <span class="model">fx-82MS</span>
     <span class="svpam">S-V.P.A.M.</span>
     
-    <div class="screen">
-        <!-- <div id="wrapper">
-
-            <div id="graph_wrapper">
-              <canvas id="graph"></canvas>
-            </div>
-
-          </div> -->
+    <div class="screen" id="screen">
 
 
-        <div class="wrapper">
+
+       <!--  <div class="wrapper">
         
         <h1 class="typing-demo" id="input">
               1 + 1
@@ -48,21 +42,48 @@
         <div id="output"></div> 
 
       
-              
-              
-          </div>
+          </div> -->
+
+          <ul>
+           <!--  <li>y= <input type="text" id="inpt1"></li>
+             <li>y= <input type="text" id="inpt2"></li>
+              <li>y= <input type="text" id="inpt3"></li>
+               <li>y= <input type="text" id="inpt4"></li>
+                <li>y= <input type="text" id="inpt5"></li>
+                 <li>y= <input type="text" id="inpt6"></li>
+             <li>y= <input type="text" id="inpt7"></li>
+              <li>y= <input type="text" id="inpt8"></li>
+               <li>y= <input type="text" id="inpt9"></li>
+                <li>y= <input type="text" id="inpt10"></li> -->
+                <li class="curr" id="inpt0">y= </li>
+                <li id="inpt1">y= </li>
+                <li id="inpt2">y= </li>
+                <li id="inpt3">y= </li>
+                <li id="inpt4">y= </li>
+                <li id="inpt5">y= </li>
+                <li id="inpt6">y= </li>
+                <li id="inpt7">y= </li>
+                <li id="inpt8">y= </li>
+                <li id="inpt9">y= </li>
+
+          </ul>
     </div>
     
     <div class="modifiers">
-        <button class="shift center-shift lineHeight" tabindex="1"> y=</button>
+        <button onclick = "graphPage()" class="shift center-shift lineHeight" tabindex="1"> y=</button>
         <button class="window center-alpha lineHeight" tabindex="2">window</button>
          <button class="alpha center-alpha lineHeight" tabindex="2">zoom</button>
          
         <button class="on center-shift lineHeight" tabindex="4">trace</button>
-        <button class="mode lineHeight" tabindex="3">graph</button>
+        <button onclick = "addGraph()" class="mode lineHeight" tabindex="3">graph</button>
     </div>
     
-     <div class="replay">Replay</div> 
+     <div class="replay"></div> 
+
+     <button class="nav up" onclick="upArrowGraph()">▲</button>
+    <button class="nav down" onclick="downArrowGraph()">▼</button>
+    <button class="nav left">◀︎</button>
+    <button class="nav right">▶︎</button> 
    
     <table class="function-keys">
         <tr>
