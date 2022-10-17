@@ -1,32 +1,57 @@
- <!DOCTYPE HTML>
-<html> <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-  <title>js-graphy - Visualize, Test, Tweak and Play with JavaScript Math</title>
+  <!DOCTYPE HTML>
+<html> <head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="description" content="SmartCAS : calculatrice formelle en HTML5 et javascript basée sur MathQuill pour la saisie des expressions et sur la librairie Giac base de Xcas pour tout ce qui est calcul formel.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+
+    <title>SmartCAS-calculatrice-formelle-alliant-Mathquill-et-Giac-Xcas</title>
+
+    <link rel="stylesheet" type="text/css" href="styles/mathquillmod.css" />
+    <link rel="stylesheet" type="text/css" href="styles/smartcas.css" />
   <link rel="stylesheet" type="text/css" href="style.css" />
  
 
    <script src="/testFunctionPlot.js"></script>
   <script type="text/javascript" src="screen.js"></script> 
-
-
+   <script src='scripts/jquery-1.8.2.min.js'></script>
+    <script src="scripts/jquery-migrate-1.1.1.min.js"></script>
+    <script src="scripts/mathquillmod.js"></script>
+    <script src="scripts/html2canvas.js"></script>
+    <script src='scripts/smartcas.js'></script>
+    <script src='scripts/scas-aide.js'></script>
+    <script src="scripts/giac.js"></script>
 
 </head>
 
-<body>
 
-  <script src="giacsimple.js" async></script> 
+<body onload="input=prop;ouverture()" onkeydown="keyd(event)" onclick="keyb=1">
+
+    
+ <script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.1/dist/chart.min.js"></script>
+    <!-- color parser used in the examples. 
+     Thx @etimberg for adding this required include
+     https://www.npmjs.com/package/@kurkle/color/ -->
+    <script src="https://cdn.jsdelivr.net/npm/@kurkle/color@0.1.9/dist/color.min.js"></script>
+    
+     
+  <div class = "graphContainer">
+      <canvas 
+        id="myChart" 
+        style="height: 100%; width: 100%;"
+      ></canvas>
+    </div>
   
 
-<div id="status">Downloading...</div>
-<div>
-  <progress value="0" max="100" id="progress" hidden=1></progress>
-</div>
+<!-- partial -->
+  <script  src="./testing.js"></script>
 
-
+ <div id="smartcas">
 
 <div class="calculator">
-    <span class="logo">Casio</span>
+    <span class="logo" onclick="testing()">Casio</span>
     <span class="model">fx-82MS</span>
     <span class="svpam">S-V.P.A.M.</span>
     
@@ -34,39 +59,85 @@
 
 
 
-       <!--  <div class="wrapper">
+         <div class="wrapper" id="mainWrap">
         
-        <h1 class="typing-demo" id="input">
-              1 + 1
-              </h1>
-        <div id="output"></div> 
+         <div id="cadre">
+            <table id="nom">
+                <tr>
+                  <td id="alp"> </td>
+                    <td id="angle">radian</td>
+                    <td id="number">réel</td>
+                    <td id="option">
 
+                        <input type="image" name="options" alt="options" src="images/settingmin.png" title="options" onclick="optn()">
+                        <ul class="suboptn">
+                            <li><input type="button" value="passer en complexe" id="c" title="change le mode réel&harr;complexe" class="butt" onclick="set(complex);"></li>
+                            <li><input type="button" value="passer en degré" id="r" title="change le mode radian&harr;degré" class="butt" onclick="set(radian);"></li>
+                            <li><input type="checkbox" name="afficher aide" style="height:20px;width:20px;vertical-align:middle" id="checkaide" checked /><span style="color:black">afficher aide</span></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+           <!--  <div id="fenetre">
+            </div>
+            <div id="aide" style="display:none"></div>  -->
+
+             <div class="graphWindow">
+                
+                <div id = "curr" class="aParent"> 
+                    <span class="expreval innerEl">
+                        y&#8321;=
+                    </span>
+                    <span id="0" onclick= "changeCurr('0')" class="expreval function mathquill-editable curr "></span>
+                
+                </div>
+                <div style="clear:both;"></div>
+                   <div  class="aParent"> 
+                    <span class="expreval innerEl">
+                        y&#8322;=
+                    </span>
+                    <span id="1" onclick= "changeCurr('1')" class="expreval function mathquill-editable "></span>
+                
+                </div>
+                <div style="clear:both;"></div>
+                   <div  class="aParent"> 
+                    <span class="expreval innerEl">
+                        y&#8323;=
+                    </span>
+                     <span id="2" onclick= "changeCurr('2')" class="expreval function mathquill-editable "></span>
+                
+                </div>
+                  <div style="clear:both;"></div>
+                   <div  class="aParent"> 
+                    <span class="expreval innerEl">
+                        y&#8324;=
+                    </span>
+                     <span id="3" onclick= "changeCurr('3')" class="expreval function mathquill-editable "></span>
+                
+                </div>
+                 <div style="clear:both;"></div>
+                   <div  class="aParent"> 
+                    <span class="expreval innerEl">
+                        y&#8325;=
+                    </span>
+                     <span id="4" onclick= "changeCurr('4')" class="expreval function mathquill-editable "></span>
+                
+                </div>
+                    
+                          
+                
+            </div>   
+
+
+        </div>
+
+          
+                <!--  <span id="prop" class="mathquill-editable inputs" onclick="setTimeout(function(){keyb=0},10)"></span>  -->
+        
       
-          </div> -->
+          </div> 
 
-          <ul>
-           <!--  <li>y= <input type="text" id="inpt1"></li>
-             <li>y= <input type="text" id="inpt2"></li>
-              <li>y= <input type="text" id="inpt3"></li>
-               <li>y= <input type="text" id="inpt4"></li>
-                <li>y= <input type="text" id="inpt5"></li>
-                 <li>y= <input type="text" id="inpt6"></li>
-             <li>y= <input type="text" id="inpt7"></li>
-              <li>y= <input type="text" id="inpt8"></li>
-               <li>y= <input type="text" id="inpt9"></li>
-                <li>y= <input type="text" id="inpt10"></li> -->
-                <li class="curr" id="inpt0">y= </li>
-                <li id="inpt1">y= </li>
-                <li id="inpt2">y= </li>
-                <li id="inpt3">y= </li>
-                <li id="inpt4">y= </li>
-                <li id="inpt5">y= </li>
-                <li id="inpt6">y= </li>
-                <li id="inpt7">y= </li>
-                <li id="inpt8">y= </li>
-                <li id="inpt9">y= </li>
-
-          </ul>
+  
     </div>
     
     <div class="modifiers">
@@ -75,86 +146,86 @@
          <button class="alpha center-alpha lineHeight" tabindex="2">zoom</button>
          
         <button class="on center-shift lineHeight" tabindex="4">trace</button>
-        <button onclick = "addGraph()" class="mode lineHeight" tabindex="3">graph</button>
+        <button onclick = " graph()" class="mode lineHeight" tabindex="3">graph</button>
     </div>
     
      <div class="replay"></div> 
 
-     <button class="nav up" onclick="upArrowGraph()">▲</button>
-    <button class="nav down" onclick="downArrowGraph()">▼</button>
-    <button class="nav left">◀︎</button>
-    <button class="nav right">▶︎</button> 
+     <button class="nav up" onclick="clavier(38)">▲</button>
+    <button class="nav down" onclick="clavier(40)">▼</button>
+    <button class="nav left" onclick="move('Left') ">◀︎</button>
+    <button class="nav right" onclick="move('Right')">▶︎</button> 
    
     <table class="function-keys">
         <tr>
-           <td><button class="blue  center-shift">2nd</button></td> 
+           <td><button class="blue  center-shift" onclick="toggleSecond()" >2nd</button></td> 
             <td><button class="modeBot center-shift">mode</button></td>
              <td><button class="combin center-shift">del</button></td>
             <td></td>
             <td></td>
         </tr>
         <tr>
-          <td><button class="green ac center-shift smallerFont">alpha</button></td> 
-            <td><button class="xVars smallerFont center-shift">x,t,&#952;,n</button></td>
+          <td><button class="green ac center-shift smallerFont" onclick="toggleAlpha()">alpha</button></td> 
+            <td><button onclick="clickDigit('x')" class="xVars smallerFont center-shift">x,t,&#952;,n</button></td>
           
            <td><button class="stat center-shift">stat</button></td>
             <td></td>
             <td></td>
         </tr>
         <tr>
-            <td><button class="math center-shift">math</button></td>
-            <td><button class="apps center-shift">apps</button></td>
-            <td><button class="prgm center-shift">prgm</button></td>
+            <td><button class="math center-shift" onclick="handleAction('','A','')">math</button></td>
+            <td><button class="apps center-shift" onclick="handleAction('','B','')" >apps</button></td>
+            <td><button class="prgm center-shift" onclick="handleAction('','C','')" >prgm</button></td>
             <td><button class="vars center-shift">vars</button></td>
-            <td><button >clear</button></td>
+            <td><button onclick="clearall(); alphaFalse();" >clear</button></td>
         </tr>
         <tr>
-            <td><button class="reciprocal center-shift">x<span class="sup">-1</span></button></td>
-            <td><button class="sin" onclick="clickDigit('sin')">sin</button></td>
-            <td><button class="cos" onclick="clickDigit('cos')">cos</button></td>
-             <td><button class="tan" onclick="clickDigit('tan')">tan</button></td> 
-             <td><button class="pow center-shift" onclick="clickDigit('^')">^</button></td>
+            <td><button class="reciprocal center-shift" onclick="handleAction('','D','')">x<span class="sup">-1</span></button></td>
+            <td><button class="sin" onclick="handleAction('sin','E','asinus')">sin</button></td>
+            <td><button class="cos" onclick="handleAction('cos','F','acosinus')">cos</button></td>
+             <td><button class="tan" onclick="handleAction('tan','G','atangente')">tan</button></td> 
+             <td><button class="pow center-shift"  onclick="handleAction('^','H','pi')">^</button></td>
         </tr>
         <tr>
-            <td><button class="square center-shift">x<span class="sup">2</span></button></td> 
-            <td><button class="comma center-shift">,</button></td>
-            <td><button class="open-paren center-shift" onclick="clickDigit('(')">(</button></td>
-            <td><button class="close-paren center-shift" onclick="clickDigit(')')">)</button></td>
-             <td><button class="divideButton center-shift" onclick="clickDigit('/')">&divide;</button></td> 
+            <td><button class="square center-shift" onclick="handleAction('²','I','sqrt')">x<span class="sup">2</span></button></td> 
+            <td><button class="comma center-shift" onclick="handleAction(',','J','')">,</button></td>
+            <td><button class="open-paren center-shift" onclick="handleAction('(','K','')">(</button></td>
+            <td><button class="close-paren center-shift" onclick="handleAction(')','L','')">)</button></td>
+             <td><button class="divideButton center-shift" onclick="handleAction('/','M','')">&divide;</button></td> 
         </tr>
     </table>
     
     <table class="basic-keys">
         <tr>
-            <td><button class="log center-shift leftButtons" onclick="clickDigit('log')">log</button></td> 
-             <td><button class="seven center-shift" onclick="clickDigit('7')">7</button></td>
-            <td><button class="eight center-shift" onclick="clickDigit('8')">8</button></td>
-            <td><button class="nine center-shift" onclick="clickDigit('9')">9</button></td>
-             <td><button class="mult center-shift">×</button></td> 
+            <td><button class="log center-shift leftButtons" onclick="handleAction('log','N','10^')">log</button></td> 
+             <td><button class="seven center-shift" onclick="handleAction('7','O','')">7</button></td>
+            <td><button class="eight center-shift" onclick="handleAction('8','P','')">8</button></td>
+            <td><button class="nine center-shift" onclick="handleAction('9','Q','')">9</button></td>
+             <td><button class="mult center-shift" onclick="handleAction('cdot','R','')">×</button></td> 
         </tr>
         <tr>
         
-           <td><button class="ln  center-shift leftButtons" onclick="clickDigit('ln')">ln</button></td>
-            <td><button class="four center-shift" onclick="clickDigit('4')">4</button></td>
-            <td><button class="five center-shift" onclick="clickDigit('5')">5</button></td>
-            <td><button  class="six center-shift" onclick="clickDigit('6')">6</button></td>
-             <td><button class="sub center-shift">−</button></td> 
+           <td><button class="ln  center-shift leftButtons" onclick="handleAction('ln','S','exp')">ln</button></td>
+            <td><button class="four center-shift" onclick="handleAction('4','T','')">4</button></td>
+            <td><button class="five center-shift" onclick="handleAction('5','U','')">5</button></td>
+            <td><button  class="six center-shift" onclick="handleAction('6','V','')">6</button></td>
+             <td><button class="sub center-shift" onclick="handleAction('-','W','')">−</button></td> 
         </tr>
         <tr>
-              <td><button class="sto center-shift leftButtons">sto&#8594;</button></td>
-            <td><button class="one center-shift" onclick="clickDigit('1')">1</button></td>
-            <td><button class="two center-shift" onclick="clickDigit('2')">2</button></td>
+              <td><button class="sto center-shift leftButtons" onclick="handleAction('','X','')">sto&#8594;</button></td>
+            <td><button class="one center-shift" onclick="handleAction('1','Y','')">1</button></td>
+            <td><button class="two center-shift" onclick="handleAction('2','Z','')">2</button></td>
              
-            <td><button onclick="clickDigit('3')" class="three center-shift">3</button></td>
-             <td><button class="plus" onclick="clickDigit('+')">+</button></td> 
+            <td><button onclick="handleAction('3','theta','')" class="three center-shift">3</button></td>
+             <td><button class="plus"onclick="handleAction('+','','')">+</button></td> 
           
         </tr>
         <tr>
              <td><button class="rcl center-shift leftButtons">on</button></td>
-             <td><button class="zero center-shift" onclick="clickDigit('0')">0</button></td>
-            <td><button class="period center-shift" onclick="clickDigit('.')">.</button></td>
+             <td><button class="zero center-shift" onclick="handleAction('0','','')">0</button></td>
+            <td><button class="period center-shift" onclick="handleAction('.',':','i')">.</button></td>
             <td><button class="exp center-shift" onclick="clickDigit('-')">(&minus;)</button></td>
-            <td><button class="equals center-shift" onclick="UI.micropy=0;UI.python_mode=0; evalinput();">enter</button></td>
+            <td><button class="equals center-shift" onclick="evalue(0); alphaFalse();">enter</button></td>
         </tr>
        
     </table>
@@ -162,8 +233,141 @@
 
 
 
- <div id="root"></div>
+
+        <div id="cadrebas">
+          
+         <br>
+          <br>
+           <br>
+            <br>
+            <div id="menuicon">
+                <div id="standard" class="visible">
+                    
+                    <input type="image" name="fraction" alt="fraction" src="images/fracb.png" class="bouton" title="fraction" onclick="action('frac')">
+                    
+                   
+                    
+                    <input type="image" name="indice" alt="indice" src="images/subb.png" class="bouton" title="indice" onclick="action('_')">
+                    <input type="image" name="infini" alt="infini" src="images/inftyb.png" class="bouton" title="infini" onclick="action('inf')">
+                    <input type="image" name="equal" alt="equal" src="images/equalb.png" class="bouton" onclick="action('=')">
+                    <input type="image" name="def" alt="définir" src="images/defb.png" class="bouton" title="définir" onclick="action('def')">
+                   
+                    <ul class="toprel">
+                        <li>
+                            <input type="image" name="rel" alt="ineg" src="images/relb.png" class="bouton" title="inégalités" onclick="rel()">
+                            <ul class="subrel">
+                                <li><input type="image" name="inf" alt="inf" src="images/leb.png" class="bouton" onclick="action('<');rel()"></li>
+                                <li><input type="image" name="sup" alt="sup" src="images/geb.png" class="bouton" onclick="action('>');rel()"></li>
+                                <li><input type="image" name="infegal" alt="infegal" src="images/leqb.png" class="bouton" onclick="action('leq');rel()"></li>
+                                <li><input type="image" name="supegal" alt="supegal" src="images/geqb.png" class="bouton" onclick="action('geq');rel()"></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div id="fonctions" class="cache">
+                    
+                    
+                    
+                    <input type="image" name="logb" alt="logb" src="images/logbb.png" class="bouton" title="logarithme base b" onclick="action('logb');back('fonctions')">
+                    
+                   
+                </div>
+                <div id="calc" class="cache">
+                    <input type="image" name="dérivée" alt="dérivée" src="images/diffb.png" class="bouton" title="dérivée" onclick="action('diff');back('calc')">
+                    <input type="image" name="fprime" alt="fprime" src="images/diff2b.png" class="bouton" title="dérivée d'une fonction définie" onclick="action('\'');back('calc')">
+                    <input type="image" name="dérivée n-ième" alt="dérivée n-ième" src="images/diffnb.png" class="bouton" title="dérivée n-ième" onclick="action('diffn');back('calc')">
+                    <input type="image" name="primitive" alt="primitive" src="images/primb.png" class="bouton" title="primitive" onclick="action('prim');back('calc')">
+                    <input type="image" name="intégrale" alt="intégrale" src="images/integb.png" class="bouton" title="intégrale" onclick="action('integ');back('calc')">
+                    <input type="image" name="limite" alt="limite" src="images/limb.png" class="bouton" title="limite" onclick="action('limperso');back('calc')">
+                    <input type="image" name="limitesupinf" alt="limitesupinf" src="images/limsib.png" class="bouton" title="limite supérieure ou inférieure" onclick="action('limsupinf');back('calc')">
+                    <input type="image" name="somme" alt="somme" src="images/sommeb.png" class="bouton" title="somme" onclick="action('somme');back('calc')">
+                    <input type="image" name="produit" alt="produit" src="images/produitb.png" class="bouton" title="produit" onclick="action('produit');back('calc')">
+                    
+                </div>
+                <div id="expr" class="cache">
+                    <input type="image" name="équation" alt="équation" src="images/eqb.png" class="bouton" title="résoudre équation ou inéquation" onclick="action('equation');back('expr')">
+                    <input type="image" name="système" alt="système" src="images/systemb.png" class="bouton" title="résoudre un système" onclick="system();back('expr')">
+                    <input type="image" name="équa diff" alt="équadiff" src="images/eqdiffb.png" class="bouton" title="résoudre une équation différentielle" onclick="action('eqdiff');back('expr')">
+                    <input type="image" name="substitution" alt="substitution" src="images/substb.png" class="bouton" title="substituer une variable" onclick="action('subst');back('expr')">
+                    
+                </div>
+                <div id="entier" class="cache">
+                    <input type="image" name="ent" alt="partie ent" src="images/floorb.png" class="bouton" title="partie entière" onclick="action('floor');back('entier')">
+                    <input type="image" name="pgcd" alt="PGCD" src="images/pgcdb.png" class="bouton" title="pgcd" onclick="action('pgcd');back('entier')">
+                    <input type="image" name="ppcm" alt="PPCM" src="images/ppcmb.png" class="bouton" title="ppcm" onclick="action('ppcm');back('entier')">
+                    <input type="image" name="quotient" alt="quotient" src="images/quotientb.png" class="bouton" title="quotient de la division" onclick="action('quotient');back('entier')">
+                    <input type="image" name="reste" alt="reste" src="images/resteb.png" class="bouton" title="reste de la division" onclick="action('reste');back('entier')">
+                    <input type="image" name="resquo" alt="resquo" src="images/resquob.png" class="bouton" title="quotient et reste de la division" onclick="action('resquo');back('entier')">
+                    <input type="image" name="modulo" alt="modulo" src="images/modulob.png" class="bouton" title="classe modulo" onclick="action('modulo');back('entier')">
+                   
+                </div>
+                <div id="complexe" class="cache">
+                    <input type="image" name="re" alt="p réelle" src="images/reb.png" class="bouton" title="partie réelle" onclick="action('re');back('complexe')">
+                    <input type="image" name="im" alt="p imag" src="images/imb.png" class="bouton" title="partie imaginaire" onclick="action('im');back('complexe')">
+                    <input type="image" name="abs" alt="module" src="images/absb.png" class="bouton" title="valeur absolue ou module" onclick="action('abs');back('complexe')">
+                    <input type="image" name="arg" alt="argument" src="images/argb.png" class="bouton" title="argument d'un nombre complexe" onclick="action('arg');back('complexe')">
+                    <input type="image" name="conj" alt="conjugué" src="images/conjb.png" class="bouton" title="conjugué d'un nombre complexe" onclick="action('conj');back('complexe')">
+                    
+                </div>
+                <div id="mat" class="cache">
+                    <input type="image" name="matrice" alt="matrice" src="images/matrixb.png" class="bouton" title="saisir une matrice" onclick="matrix();back('mat')">
+                    <input type="image" name="identité" alt="identité" src="images/idnb.png" class="bouton" title="matrice identité" onclick="idn();back('mat')">
+                    <input type="image" name="déterminant" alt="det" src="images/detb.png" class="bouton" title="déterminant d'une matrice" onclick="action('det');back('mat')">
+                    <input type="image" name="transposée" alt="transposée" src="images/tranb.png" class="bouton" title="transposée d'une matrice" onclick="action('tran');back('mat')">
+                    
+                </div>
+                <div id="prob" class="cache">
+                    <input type="image" name="fact" alt="factorielle" src="images/factb.png" class="bouton" title="factorielle" onclick="action('!');back('prob')">
+                    <input type="image" name="binom" alt="binomial" src="images/binomb.png" class="bouton" title="coefficient binomial" onclick="action('binom');back('prob')">
+                   
+                </div>
+            </div>
+            
+            <div id="clavier">
+                <div id="alpha">
+                    <p>
+                        <span class="mathquill-rendered-math touche" onclick="action('x')"><var>x</var></span>
+                        <span class="mathquill-rendered-math touche" onclick="action('y')"><var>y</var></span>
+                        
+                    </p>
+                    
+                    
+                    <p>
+                        <span class="mathquill-rendered-math touche" onclick="action('alpha')"><var>&alpha;</var></span>
+                        <span class="mathquill-rendered-math touche" onclick="action('beta')"><var>&beta;</var></span>
+                        <span class="mathquill-rendered-math touche" onclick="action('omega')"><var>&omega;</var></span>
+                        <span class="mathquill-rendered-math touche" onclick="action('theta')"><var>&theta;</var></span>
+                        <span class="mathquill-rendered-math touche" onclick="action('phi')"><var>&phi;</var></span>
+                    </p>
+                </div>
+                <div id="num">
+                   
+                   
+                </div>
+                <div id="actions">
+                    <P>
+                        <button title="efface le caractère précédent" onclick="backsp()"><img src="images/backspace.png" alt="eff" /></button>
+                        <input type="button" value="clear" title="efface la zone de saisie" onclick="clearp()">
+                    </p>
+                    <p>
+                        <input type="button" value="bis" title="saisie le dernier calcul" onclick="bis()">
+                        <input type="button" value="ans" title="saisie le dernier résultat" onclick="ans()">
+                    </p>
+                    <p>
+                        <input type="button" value="fact" title="factorise un nombre entier ou une expression" onclick="factorise();">
+                        <input type="button" value="simp" title="simplifie l'expression ou le resultat du calcul" onclick="simplifie();">
+                    </p>
+                    <p>
+                        <input type="button" value="EXE" style="font-weight:bold;" title="valider le calcul" onclick="evalue(1)">
+                        
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
-</body> </html> 
+</body>
+
+</html> 

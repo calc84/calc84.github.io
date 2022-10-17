@@ -1,0 +1,379 @@
+body{
+	font-family: serif;
+}
+
+#smartcas{
+	margin-top: 700px !important;
+	overflow:auto;
+	width:100%;
+	max-width:1024px;
+	margin:auto;
+}
+
+#smartcas input, button{
+    cursor:pointer;
+}
+
+#cadre{
+    position:relative;
+	width:100%;
+	height:163px;
+	border-radius:1.5em 1.5em 0 0;
+	text-align:center;
+	color:white;
+}
+
+#fenetre{
+	
+    position:absolute;
+	margin:auto;
+	top:1.6em;
+	bottom:0;
+	left:2.5%;
+	background:white;
+	width:95%;
+	overflow:auto;
+	-webkit-overflow-scrolling:touch;
+	-ms-overflow-style:auto;
+    color:blue;
+	font-size:90%;
+}
+
+.graphWindow{
+		
+    position:absolute;
+	margin:auto;
+	top:1.6em;
+	bottom:0;
+	left:2.5%;
+	background:white;
+	width:95%;
+	overflow:auto;
+	-webkit-overflow-scrolling:touch;
+	-ms-overflow-style:auto;
+    color:blue;
+	font-size:90%;
+	overflow-x:hidden;
+}
+
+#nom{
+	width:95%;
+	margin-left:2.5%;
+	font-weight:bold;
+}
+
+#alp{
+	width:40px;
+}
+
+#alp,
+#number,
+#angle{
+	color:hsl(204, 30%, 15%) !important;
+	font-family:Courier New,serif;
+	text-align:right;
+}
+
+
+ul.suboptn {
+    display:none;
+	background:rgba(15,5,107,0.7);
+	list-style: none;
+	padding:0.5%;
+	margin:0;
+	position:absolute;
+	right:2.5%;
+	z-index:2;
+	text-align:center;
+}
+
+#clearall{
+   position:absolute;
+   bottom:0;
+   right:4%;
+   background: transparent;
+   padding: 0;
+   border: none;
+}
+
+#aide{
+   position:absolute;
+   max-width:40%;
+   max-height:275px;
+   right:4%;
+   bottom:0;
+   z-index:1;
+   background:rgba(255,255,0,0.8);
+   color:black;
+   text-align:left;
+   overflow:auto;
+   padding:1%;
+   border-radius:15px 15px 0 0;
+}
+
+#aide h3{
+   text-align:center;
+   font-size:120%;
+   margin:0;
+}
+
+#aide h4{
+   font-weight:normal;
+   font-size:100%;
+   font-style:italic;
+   margin:0;
+}
+
+#cadrebas{
+ 	border-radius:0 0 1.5em 1.5em;
+	background:#0F056B;
+	width:100%;
+	padding:0.5em 0 0.5em 0;
+}
+
+#saisie{
+    display:inline-block;
+    width:100%;
+	padding-left:2.5%;
+	margin-top:5px;
+}
+
+.inputs{
+	 background-color:white !important;
+	 width:93%;
+	 margin-top:1px;
+	 margin-left:7px;
+	 padding-left:3px !important;
+}
+
+/* #prop{
+	 background-color:white;
+	 width:93%;
+	 margin-top:1px;
+	 margin-left:7px;
+	 padding-left:3px !important;
+}
+ */
+#pave{
+    display:inline-block;
+    width:25%;
+	text-align:right;
+}
+
+#hautbas{
+   display:inline-block;
+   vertical-align:middle;
+}
+
+#hautbas button{
+   display:block;
+}
+
+#menu{
+   text-align:center;
+}
+
+#menu input{
+   width:10%;
+   height:35px;
+   padding:0;
+}
+
+#menuicon{
+  	text-align:center;
+	background:#adadad;
+	width:95%;
+	margin:0 auto 0 auto;
+	padding-top:0.5%;
+	border-radius:0.5em;
+}
+
+ul.toprel{
+    display:inline-block;
+	list-style: none;
+	padding:0 0 0 4px;
+	margin:0;
+    position:absolute;
+}
+
+ul.toprel li ul.subrel {
+    background:#adadad;
+    display:none;
+	list-style: none;
+	padding:0;
+	margin:0;
+	bottom:220px;
+	position:relative;
+	border-radius:0.5em;
+	z-index:3;
+}
+
+ul.toprel li ul.subrel li{
+	padding:2px;
+}
+
+#clavier{
+	background:#adadad;
+	margin-left:auto;
+	margin-right:auto;
+	border-radius:0.5em;
+	text-align:center;
+	width:95%;
+}
+
+#clavier div{
+   display:inline-block;
+   width:33%;
+   vertical-align:middle;
+}
+
+#clavier p{
+   margin:2%;
+}
+
+#alpha{
+float:left;
+}
+
+#actions{
+float:right;
+}
+
+#actions input,#actions button{
+   width:45%;
+   font-size:1.25em;
+   height:33px;
+}
+
+#actions img{
+   vertical-align:middle;
+   margin-bottom:3%;
+}
+
+footer{
+    width: 100%;
+    max-width: 1024px;
+    margin: auto;
+    margin-top:0.5em;
+	text-align:center;
+	font-size:large;
+}
+
+footer a{
+   color:#404040;
+}
+
+footer a:visited{
+   color:#404040;
+}
+
+.mathquill-editable{
+	border:none;
+	min-width:10px;
+}
+
+.mathquill-editable .empty{
+	background:#ccc;
+	border:none;
+}
+
+.butt{
+	height:35px;
+	min-width:50px;
+	vertical-align:middle;
+	margin:2px;
+}
+
+.pave{
+    border-radius:5px;
+    padding:2px 6px 0 6px;
+	border:none;
+	vertical-align:middle;
+}
+
+.bouton{
+	border-radius:5px;
+	vertical-align:middle;
+	margin-bottom:0.5%;
+}
+
+.touche{
+	border-radius:5px;
+	border:solid 1px;
+	background:white;
+	font-size:180%;
+	width:16%;
+	height:33px;
+	line-height:33px;
+	cursor:pointer;
+}
+
+.reserve{
+   	background-color: rgba(255, 0, 0, 0.1);
+}
+
+.expreval{
+     display:block;
+     color:black;
+	 margin-left:1%;
+	 margin-top:5px;
+	 text-align:left;
+
+}
+
+./* resultat {
+    float:left !important;
+
+} */
+
+.cache{
+   display:none !important;
+}
+
+input[type="button"]::-moz-focus-inner{
+	padding:0;
+	border:0;
+}
+
+input[type="image"]:focus{
+   border:none;
+}
+
+textarea{
+	  color:#0000A0 !important;
+}
+
+.function{
+	padding-top: 20px !important;
+	padding-left: 20px !important;
+	 caret-color: transparent !important;
+}
+.aParent .innerEl {
+    float: left;
+    clear: none; 
+	
+}
+
+.innerEl {
+margin-bottom: 10px !important;
+margin-top: 16px !important;
+padding: 5px
+}
+
+.function:hover  {
+  border: 1px solid black;
+	border-radius: 5px;
+}
+
+.curr{
+	 border: 1px solid black;
+	 border-radius: 5px;
+}
+
+.curr::after{
+	animation: none !important;
+
+{
+	 border: 1px solid black;
+	 border-radius: 5px;
+}

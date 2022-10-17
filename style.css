@@ -7,8 +7,9 @@ h1{
     font-weight:normal !important;
 }
 .calculator {
-    width: 18rem;
-    height: 41.6rem;
+    margin-top: 20px !important;
+    width: 19.3rem;
+    height: 43.6rem;
     /* background: hsl(208, 28%, 35%); */
     /* background: linear-gradient(to top, hsl(208, 30%, 35%), hsl(208, 30%, 40%));  */
     background: linear-gradient(to top, hsl(204, 30%, 15%), hsl(204, 30%, 15%));  
@@ -47,7 +48,6 @@ h1{
     text-align: center;
     display: inline-block;
     color: hsl(353, 50%, 70%);
-    margin-top: .75em;
     font-family: pirulen;
 }
 
@@ -55,7 +55,7 @@ h1{
     font-family: monospace !important;
     letter-spacing:1.3px !important;
     width: 100%;
-    height: 10rem;
+    height: 13rem;
     background: hsl(190, 20%, 88%);
     border-radius: 4px;
     box-shadow: inset 0 0 5px black;
@@ -63,14 +63,14 @@ h1{
     color: black;
     overflow: scroll;
     z-index: 1000 !important;
+
     
 }
 
 
 
 .screen .input {
-    font-family: 'Scientific Calculator LCD', monospace;
-    font-size: 1rem;
+    font-family:  monospace;
     position: relative;
     top: 12px;
     left: 12px;
@@ -128,7 +128,7 @@ td {
     height: 1.25rem;
     border-radius: 15px;
     position: relative;
-    margin-right: .92rem;
+    margin-right: 1.27rem;
     background: hsl(221, 14%, 66%);
     background: linear-gradient(to top, hsl(221, 14%, 66%), hsl(221, 14%, 71%));
     font-size: 11px;
@@ -175,7 +175,7 @@ td {
     line-height: 70px;
     position: absolute;
     left: 65%;
-    top: 43%;
+    top: 46%;
     border-radius: 125px;
     text-transform: uppercase;
     font-size: 9px;
@@ -192,24 +192,27 @@ td {
 }
 
 .up{
-    left: 246px;
-    top: 304px;
+   /*  left: 246px;
+    top: 304px; */
+
+    left: 259px;
+    top: 338px;
 }
 
 .down{
-     left: 246px;
-    top: 350px;
+     left: 259px;
+    top: 384px;
 
 }
 
 .left{
-left: 218px;
-    top: 327px;
+left: 231px;
+    top: 361px;
 
 }
  .right{
-     left: 277px;
-    top: 331.5px;
+     left: 290px;
+    top: 365.5px;
      font-size: 9px !important;
  }
 
@@ -232,13 +235,13 @@ button.nav {
     width: 2.5rem;
     height: 1.5rem;
     border-radius: 5px;
-    margin-right: 13px;
+    margin-right: 22px;
     
 }
 
 .function-keys td {
     padding-bottom: 1rem;
-    padding-right: .25rem;
+    
 }
 
 .leftButtons{
@@ -257,7 +260,7 @@ button.nav {
     border-radius: 3px 3px 7px 7px !important;
 }
 
-.basic-keys {}
+
 .basic-keys button {
     width: 2.5rem;
     height: 1.75rem;
@@ -266,9 +269,12 @@ button.nav {
     border-radius: 3px 3px 7px 7px;
 }
 
+.basic-keys{
+    margin-left:7px !important;
+}
 .basic-keys td {
     padding-bottom: 1rem;
-    padding-right: .25rem;
+    padding-right: 22.5px
 }
 
 .basic-keys tr:last-child td {
@@ -470,7 +476,6 @@ button span.sup {
 /* Typing */
 
 .wrapper {
-  padding-left: 5px;
   place-items: center;
   font-size: 0.9rem;
    font-weight: normal !important;
@@ -481,7 +486,7 @@ button span.sup {
   
   white-space: nowrap;
   overflow: hidden;
-  font-size: 1.3em;
+  font-size: 1em;
 }
 
 
@@ -489,7 +494,7 @@ h1 {
   display: inline-block;
 }
 
-h1:after {
+h1.currSelected:after {
   margin-bottom:-2px;
   content: '';
   margin-left:5px;
@@ -588,4 +593,21 @@ li {
   animation: blink .8s linear infinite alternate;
 }
 
+.blinking::after {
+  margin-bottom:-2px;
+  content: '';
+  margin-left:-9px;
+  width: 8px;
+  height: 14px;
+  background: black;
+  opacity: 0;
+  display: inline-block;
+  animation: blink .8s linear infinite alternate;
+}
+
+
+.graphContainer{
+    width: 500px;
+    height: 400px;
+}
 
